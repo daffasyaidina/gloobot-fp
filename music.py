@@ -7,7 +7,7 @@ class music(commands.Cog):
     def __init__(self, client):
         self.bot = client
 
-    @commands.command()
+    @commands.command() #commands to make the bot join a discord voice channel
     async def join(self, ctx):
         if ctx.author.voice is None:
             await ctx.send("Bro, you're not in the channel")
@@ -17,11 +17,11 @@ class music(commands.Cog):
         else:
              await ctx.voice_client.move_to(voice_channel)
     
-    @commands.command()
-    async def disconnect(self, ctx):
+    @commands.command() #commands to make the bot disconnect from a discord voice channel
+    async def leave(self, ctx): 
         await ctx.voice_client.disconnect()
 
-    @commands.command()
+    @commands.command() #commands to make the bot play music 
     async def play(self, ctx, url):
         ctx.voice_client.stop()
         FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': 'vn'}
@@ -31,14 +31,14 @@ class music(commands.Cog):
             info = ydl.extract_info(url, download = False)
             url2 = info['formats'][0]['url']
             source = await discord.FFmpegOpusAudio.from_probe(url2, **FFMPEG_OPTIONS) #string to play audio
-            vc.play(source)
+            vc.play(source) 
 
-    @commands.command()
+    @commands.command() #commands to make the bot pause the music
     async def pause(self, ctx):
         ctx.voice_client.pause()
         await ctx.send("Paused music")
     
-    @commands.command()
+    @commands.command() #commands to make the bot resume the music
     async def resume(self, ctx):
         ctx.voice_client.resume()
         await ctx.send("Resume music")
