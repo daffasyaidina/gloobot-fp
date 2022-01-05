@@ -14,12 +14,15 @@ class music(commands.Cog):
         voice_channel = ctx.author.voice.channel
         if ctx.voice_client is None:
              await voice_channel.connect()
+             await ctx.send("wait up holmes, joining the channel")
         else:
              await ctx.voice_client.move_to(voice_channel)
+             await ctx.send("we movin")
     
     @commands.command() #commands to make the bot disconnect from a discord voice channel
     async def leave(self, ctx): 
         await ctx.voice_client.disconnect()
+        await ctx.send("Adios")
 
     @commands.command() #commands to make the bot play music 
     async def play(self, ctx, url):
