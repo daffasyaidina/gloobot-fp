@@ -4,11 +4,12 @@ import music
 
 cogs = [music]
 
+
 client = commands.Bot(command_prefix="-", intents = discord.Intents.all())
 
 for i in range(len(cogs)):
     cogs[i].setup(client)
 
-
-client.run("OTIzOTMxMjc1MTQyNzg3MDcy.YcXMDQ.3fWisvUQumOdwsEzjEoBD4k9XTE")
+TOKEN = "OTIzOTMxMjc1MTQyNzg3MDcy.YcXMDQ.0fDCXX3zhsNg4uIMT9uYFVzCTDE"
+client.run(TOKEN)
  
