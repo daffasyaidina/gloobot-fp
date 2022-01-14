@@ -21,6 +21,6 @@ async def on_ready():
 async def change_status():
     await client.change_presence(activity=discord.Game(choice(status)))
    
-TOKEN = "OTIzOTMxMjc1MTQyNzg3MDcy.YcXMDQ.0fDCXX3zhsNg4uIMT9uYFVzCTDE" 
+TOKEN = "OTIzOTMxMjc1MTQyNzg3MDcy.YcXMDQ.NQwCyT8cXg8azRjnQStFBUEcu_M" 
 client.run(TOKEN)#the token is used for connecting the Bot (it couldn't be posted publically since token are basically a password for the bot account)
  
