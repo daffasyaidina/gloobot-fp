@@ -27,7 +27,7 @@ class commands(commands.Cog):
              await ctx.send(f"**joining** `{voice_channel}`")
         else:
              await ctx.voice_client.move_to(voice_channel)
-             await ctx.send("**we movin to** `{voice_channel}`")
+             await ctx.send(f"**we movin to** `{voice_channel}`")
     
     @commands.command(name = "leave", help = "This command makes gloobot to leave the channel") #commands to make the bot disconnect from a discord voice channel
     async def leave(self, ctx):
