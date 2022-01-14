@@ -1,16 +1,13 @@
 from random import choice
-import discord
+import discord 
 from discord.ext import commands, tasks
-import music
 
-cogs = [music]
-
+from commands_cog import commands_cog #importing the cog
 
 client = commands.Bot(command_prefix="-", intents = discord.Intents.all()) #initiate the bot command prefix to "-" and letting the user to use every commands
 status = ["Studying!", "HOW LONG IS THIS GOING TO TAKE!"] #sets of status
 
-for i in range(len(cogs)):
-    cogs[i].setup(client)
+client.add_cog(commands_cog(client)) #registering the class with the Bot
 
 @client.event #when the bot is online it will activate the change_status function and print out "Bot is online"
 async def on_ready():
@@ -21,6 +18,5 @@ async def on_ready():
 async def change_status():
     await client.change_presence(activity=discord.Game(choice(status)))
    
-TOKEN = "OTIzOTMxMjc1MTQyNzg3MDcy.YcXMDQ.NQwCyT8cXg8azRjnQStFBUEcu_M" 
-client.run(TOKEN)#the token is used for connecting the Bot (it couldn't be posted publically since token are basically a password for the bot account)
- 
+TOKEN = "couldn't be posted publically :/" 
+client.run(TOKEN)#the token is used for connecting the Bot (it couldn't be posted publically since token are basically a password for the bot account) 
